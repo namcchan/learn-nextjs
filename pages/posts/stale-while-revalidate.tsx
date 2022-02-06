@@ -33,7 +33,7 @@ export default function Params({ post }: Props) {
   );
 }
 
-export const getStaticProps: GetServerSideProps<Props> = async (context: GetServerSidePropsContext) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (context: GetServerSidePropsContext) => {
   context.res.setHeader('Cache-Control', 's-maxage=5,stale-while-revalidate=5');
 
   await new Promise((resolve) => setTimeout(resolve, 3000));
