@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 interface PostProps {
@@ -6,6 +7,12 @@ interface PostProps {
 }
 
 export default function PostDetailPage({ post }: PostProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div style={{ fontSize: '2rem', textAlign: 'center' }}>Loading...</div>;
+  }
+
   return (
     <div>
       <h1>PostDetailPage</h1>
@@ -18,14 +25,12 @@ export default function PostDetailPage({ post }: PostProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  console.log('GET STATIC PATHS');
-
   const response = await fetch('https://js-post-api.herokuapp.com/api/posts?_page=1');
   const data = await response.json();
 
   return {
     paths: data.data.map((post: any) => ({ params: { postId: post.id } })),
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -45,5 +50,6 @@ export const getStaticProps: GetStaticProps<PostProps> = async (context: GetStat
     props: {
       post: data,
     },
+    revalidate: 5,
   };
 };

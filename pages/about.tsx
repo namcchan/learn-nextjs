@@ -1,10 +1,12 @@
 import Header from '@/components/header';
+import { MainLayout } from '@/components/layout';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { NextPageWithLayout } from '../models';
 
 // const Header = dynamic(() => import('@/components/header'), { ssr: true });
 
-export default function About() {
+const About: NextPageWithLayout = () => {
   const [postList, setPostList] = useState([]);
   const router = useRouter();
 
@@ -36,7 +38,7 @@ export default function About() {
   }
 
   return (
-    <div>
+    <>
       <h1>About page</h1>
       <Header />
       <ul className="post-list">
@@ -45,9 +47,9 @@ export default function About() {
         ))}
       </ul>
       <button onClick={handleNextPage}>Next Page</button>
-    </div>
+    </>
   );
-}
+};
 
 export const getStaticProps = () => {
   console.log('get static props');
@@ -57,8 +59,12 @@ export const getStaticProps = () => {
   };
 };
 
+About.Layout = MainLayout;
+
 // export function getServerSideProps() {
 //   return {
 //     props: {},
 //   };
 // }
+
+export default About;
