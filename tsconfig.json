@@ -17,8 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./components/*"],
+      "@/components/common/*": ["./components/common/*"],
       "@/constants/*": ["./constants/*"],
       "@/hooks/*": ["./hooks/*"],
+      "@/hooks": ["./hooks"],
       "@/models": ["./models"],
       "@/models/*": ["./models/*"],
       "@/api": ["./api-client"],

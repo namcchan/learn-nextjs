@@ -1,10 +1,13 @@
 import { authApi } from '@/api';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useAuth } from '../hooks';
 
 type Props = {};
 
 export default function Login({}: Props) {
+  const router = useRouter();
+
   const { login, logout, profile } = useAuth({
     revalidateOnMount: false,
   });
@@ -13,7 +16,7 @@ export default function Login({}: Props) {
     try {
       await login();
 
-      // TODO redirect to home page
+      router.push('/admin');
     } catch (error) {
       console.log('Failed to login: ', error);
     }
