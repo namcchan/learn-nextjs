@@ -7,7 +7,7 @@ const axiosClient = axios.create({
   },
 });
 
-axios.interceptors.request.use(
+axiosClient.interceptors.request.use(
   function (config) {
     return config;
   },
@@ -16,7 +16,7 @@ axios.interceptors.request.use(
   }
 );
 
-axios.interceptors.response.use(
+axiosClient.interceptors.response.use(
   function (response) {
     return response.data;
   },
