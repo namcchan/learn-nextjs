@@ -24,7 +24,9 @@
       "@/models": ["./models"],
       "@/models/*": ["./models/*"],
       "@/api": ["./api-client"],
-      "@/api/*": ["./api-client/*"]
+      "@/api/*": ["./api-client/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/utils": ["./utils"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
