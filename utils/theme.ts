@@ -1,17 +1,21 @@
 import { red } from '@mui/material/colors';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // Create a theme instance.
-export const theme = createTheme({
+export let theme = createTheme({
   palette: {
     primary: {
       main: '#FF6464',
     },
     secondary: {
       main: '#00A8CC',
+      light: '#EDF7FA',
     },
     error: {
       main: red.A400,
+    },
+    text: {
+      primary: '#21243D',
     },
   },
   components: {
@@ -49,5 +53,21 @@ export const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      variants: [
+        {
+          props: {
+            variant: 'contained',
+            color: 'primary',
+          },
+          style: {
+            color: 'white',
+          },
+        },
+      ],
+      styleOverrides: {},
+    },
   },
 });
+
+theme = responsiveFontSizes(theme);
