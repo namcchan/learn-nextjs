@@ -19,7 +19,7 @@ export function RecentPostsSection() {
           <Typography variant="h6" fontWeight="normal">
             Recent posts
           </Typography>
-          <Link href="" passHref>
+          <Link href="/blogs" passHref>
             <MuiLink
               sx={{
                 display: {
