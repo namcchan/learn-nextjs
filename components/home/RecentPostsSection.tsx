@@ -1,7 +1,8 @@
 import { Box, Container, Stack, Typography, Link as MuiLink } from '@mui/material';
+import { posts as posts } from 'data/blogs';
 import Link from 'next/link';
 import React from 'react';
-import { PostCard } from './PostCard';
+import { PostCard } from '../common/PostCard';
 
 export function RecentPostsSection() {
   return (
@@ -50,10 +51,10 @@ export function RecentPostsSection() {
           }}
         >
           <Box>
-            <PostCard />
+            <PostCard isCard post={posts[0]} />
           </Box>
           <Box>
-            <PostCard />
+            <PostCard isCard post={posts[0]} />
           </Box>
         </Stack>
       </Container>

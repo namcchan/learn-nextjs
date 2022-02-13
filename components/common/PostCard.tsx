@@ -1,15 +1,28 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Post } from 'data/blogs';
 import * as React from 'react';
 
-export interface PostCardProps {}
+export interface PostCardProps {
+  post: Post;
+  isCard: boolean;
+}
 
-export function PostCard(props: PostCardProps) {
+export function PostCard({ post, isCard }: PostCardProps) {
   return (
     <Card sx={{ boxShadow: 'none' }}>
-      <CardContent sx={{ padding: '24px' }}>
+      <CardContent
+        sx={{
+          padding: {
+            xs: isCard ? '16px' : '0',
+            md: isCard ? '24px' : '0',
+          },
+          '&:last-child': {
+            paddingBottom: isCard ? '' : 0,
+          },
+        }}
+      >
         <Typography variant="h5" fontWeight="bold" pb={2}>
-          Making a design system from scratch
+          {post.title}
         </Typography>
         <Stack direction="row" pb={2}>
           <Typography
@@ -19,7 +32,7 @@ export function PostCard(props: PostCardProps) {
               md: 3,
             }}
           >
-            12 Feb 2020
+            {post.date}
           </Typography>
           <Typography
             pl={{
@@ -27,13 +40,10 @@ export function PostCard(props: PostCardProps) {
               md: 3,
             }}
           >
-            Design, Pattern
+            {post.tag}
           </Typography>
         </Stack>
-        <Typography component="p">
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
-          velit mollit. Exercitation veniam consequat sunt nostrud amet.
-        </Typography>
+        <Typography component="p">{post.description}</Typography>
       </CardContent>
     </Card>
   );

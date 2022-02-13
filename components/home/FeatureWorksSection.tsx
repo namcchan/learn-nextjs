@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { works } from 'data/works';
 import React from 'react';
-import { WorkCard } from './WorkCard';
+import { WorkCard } from '@/components/common/WorkCard';
 
 export function FeatureWorksSection() {
   return (

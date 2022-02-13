@@ -2,7 +2,7 @@ import { MainLayout } from '@/components/layout';
 import { NextPageWithLayout } from '@/models';
 import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { WorkCard } from '@/components/home/WorkCard';
+import { WorkCard } from '@/components/common/WorkCard';
 import { works } from 'data/works';
 
 const Works: NextPageWithLayout = () => {
